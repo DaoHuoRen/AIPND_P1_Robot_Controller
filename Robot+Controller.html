@@ -12267,8 +12267,16 @@ OK
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>回答：</strong></p>
 <ol>
-<li>任务4 中 env_data 是全局变量， 任务5 中的 env_data 是局部变量</li>
-<li>不会改， 因为 is_move_valid 中的 env_data 是局部变量，是 外部 env_data 传值进来的，不会对全局变量的env_data 产生影响</li>
+<li>任务4 中 env_data 是全局变量， 任务5 中的 env_data 是局部变量<ol>
+<li>全局变量是在全局范围内都可以访问，如果需要在函数中定义或修改全局变量，可以使用 global </li>
+<li>局部变量是在某个函数中声明的，只能在该函数中调用它</li>
+</ol>
+</li>
+<li>会改变 ，因为 env_data 是列表 是可变类型<ol>
+<li>Python的每个对象都分为可变和不可变，主要的核心类型中，整型、浮点型、bool型、字符串、元组是不可变的，列表、字典是可变的。可变参数作为参数是传引用到函数，所以在函数中对形参的修改会改变实参的值</li>
+<li>如果不改变数据结构而是直接赋值，不会改变 如：env_data = [XXX] 不会改变 外部env_data的值 </li>
+</ol>
+</li>
 </ol>
 
 </div>
